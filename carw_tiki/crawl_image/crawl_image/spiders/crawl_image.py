@@ -67,7 +67,6 @@ class LozaSpider(scrapy.Spider):
             if path.isdir(path_file) == False:
                 os.mkdir(path_file)
             for image_url in response.xpath('//img[@alt="Product"]/@src').getall():
-                print("++++++++++++++++++++++++++++++++++++++++++++", image_url)
             #     path_image_file = path_file + '/' + image_url.split('/')[-1]
             #     resp = requests.get(image_url, stream=True)
             #     resp = requests.get(image_url, stream=True)
@@ -76,6 +75,8 @@ class LozaSpider(scrapy.Spider):
             #     shutil.copyfileobj(resp.raw, local_file)
             #     del resp
             #     local_file.close()
+                image_url = image_url.replace('75x75', '550x550')
+                print("++++++++++++++++++++++++++++++++++++++++++++", image_url)
                 yield scrapy.Request(image_url, callback=self.parse_image, cb_kwargs=dict(dictionary = dictionary))
         # yield  scrapy.Request(image, callback=self.parse_image)
     def parse_image(self, response, dictionary):
