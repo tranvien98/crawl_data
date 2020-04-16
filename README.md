@@ -1,7 +1,7 @@
 # crawl_data
 ## Crawl dữ liệu từ trang tiki dùng scrapy
 
-Thư mục crawl_data/crawl_image
+Thư mục crawl_data/crawl_tiki/crawl_image
 chạy lệnh `scrapy crawl crawl_products -o product.json` để crawl dữ liệu
 
 ### Nếu muốn thay đổi số lượng sản phẩm thì vào file *crawl_image/spiders/crawl_image.py*
